@@ -13,9 +13,25 @@
 
 <body>
     <div class="center">
-        <h1>Alyssa's Technology News</h1>
+        <h1>Alyssa's News</h1>
     </div>
-    <div class="header"><span id="bold">Number of Articles :</span> <span id="newsNum"></span></div>
+    <div class="top">
+        <div class="header"><span id="bold">Number of Articles :</span> <span id="newsNum"></span></div>
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle top-space" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Categories
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" onclick="busCag()">Business</a>
+              <a class="dropdown-item" onclick="entCag()">Entertainment</a>
+              <a class="dropdown-item" onclick="genCag()">General</a>
+              <a class="dropdown-item" onclick="hthCag()">Health</a>
+              <a class="dropdown-item" onclick="sciCag()">Science</a>
+              <a class="dropdown-item" onclick="spoCag()">Sports</a>
+              <a class="dropdown-item" onclick="techCag()">Technology</a>
+            </div>
+          </div>
+    </div>
     <div id="newsArea">
     </div>
     <div class="center">

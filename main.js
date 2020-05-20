@@ -1,8 +1,9 @@
 let newsList = []
 let numNewsStories = 20;
+let topics = "general";
 
 const loadNews = async() => {
-    let url = `https://newsapi.org/v2/everything?q=tech&pagesize=${numNewsStories}&apiKey=3e55faed737443bf89827a73de9aa361`
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${topics}&pagesize=${numNewsStories}&apiKey=3e55faed737443bf89827a73de9aa361`
     let data = await fetch(url)
     let result = await data.json()
     newsList = result.articles
@@ -35,6 +36,41 @@ const showMore = () => {
     numNewsStories += 20;
     loadNews()
     document.getElementById("newsNum").innerHTML = `${numNewsStories}`
+}
+
+const busCag = () => {
+    topics = "business";
+    loadNews()
+}
+
+const entCag = () => {
+    topics = "entertainment";
+    loadNews()
+}
+
+const genCag = () => {
+    topics = "general";
+    loadNews()
+}
+
+const hthCag = () => {
+    topics = "health";
+    loadNews()
+}
+
+const sciCag = () => {
+    topics = "science";
+    loadNews()
+}
+
+const spoCag = () => {
+    topics = "sports";
+    loadNews()
+}
+
+const techCag = () => {
+    topics = "technology";
+    loadNews()
 }
 
 

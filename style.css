@@ -19,7 +19,7 @@ h1 {
     border-radius: 100px;
     padding: 20px;
     background-color: rgb(113, 156, 151);
-    width: 600px;
+    width: 400px;
 }
 
 #title {
@@ -69,4 +69,17 @@ a:hover {
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 50px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-space {
+    margin-right: 30px;
+}
+
+.dropdown-item {
+    cursor: pointer;
 }
