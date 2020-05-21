@@ -1,17 +1,19 @@
 let newsList = []
 let numNewsStories = 20;
 let topics = "general";
+let keyword = "";
 
-const loadNews = async() => {
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${topics}&pagesize=${numNewsStories}&apiKey=3e55faed737443bf89827a73de9aa361`
+const loadNews = async () => {
+    let url = `https://newsapi.org/v2/top-headlines?category=${topics}&pagesize=${numNewsStories}${keyword}&apiKey=3e55faed737443bf89827a73de9aa361`
     let data = await fetch(url)
     let result = await data.json()
     newsList = result.articles
+    showSourceList()
     render(newsList)
 }
 
 const render = (list) => {
-    console.log("You call render and you have list",list)
+    console.log("You call render and you have list", list)
     let newsHtml = list.map(item => `
     <div id="newsArea">
         <div id="news">
@@ -73,5 +75,37 @@ const techCag = () => {
     loadNews()
 }
 
-
 loadNews()
+
+const searchByKeyword = () => {
+    keyword = "&q="+document.getElementById("keywordArea").value
+    loadNews()
+    document.getElementById("keywordArea").value = ''
+}
+
+const showSourceList = () => {
+    let sourceNames = newsList.map(item => item.source.name)
+    let sourceObject = {}
+    for (let i = 0; i < sourceNames.length; i++) {
+        let sourceName = sourceNames[i]
+        if (sourceObject[sourceName] == null) {
+            sourceObject[sourceName] = 1
+        } else {
+            sourceObject[sourceName]++;
+        }
+    }
+    let sourceList = Object.keys(sourceObject)
+    console.log("sss", sourceList)
+    let html = sourceList.map(item => `<div><input type="checkbox" value="${item}" onchange="searchBySource(event)"> ${item} (${sourceObject[item]})</div>`).join('')
+    document.getElementById("sourceArea").innerHTML=html
+}
+
+let searchBySource = (event) => {
+    if(event.target.checked == true){
+        source = event.target.value
+        let filteredList = newsList.filter(item => item.source.name === source)
+        render(filteredList)
+    } else {
+        render(newsList)
+    }
+}

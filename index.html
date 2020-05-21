@@ -16,26 +16,36 @@
         <h1>Alyssa's News</h1>
     </div>
     <div class="top">
-        <div class="header"><span id="bold">Number of Articles :</span> <span id="newsNum"></span></div>
         <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle top-space" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Categories
+            <button class="btn btn-warning dropdown-toggle top-space" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" onclick="busCag()">Business</a>
-              <a class="dropdown-item" onclick="entCag()">Entertainment</a>
-              <a class="dropdown-item" onclick="genCag()">General</a>
-              <a class="dropdown-item" onclick="hthCag()">Health</a>
-              <a class="dropdown-item" onclick="sciCag()">Science</a>
-              <a class="dropdown-item" onclick="spoCag()">Sports</a>
-              <a class="dropdown-item" onclick="techCag()">Technology</a>
+                <a class="dropdown-item" onclick="busCag()">Business</a>
+                <a class="dropdown-item" onclick="entCag()">Entertainment</a>
+                <a class="dropdown-item" onclick="genCag()">General</a>
+                <a class="dropdown-item" onclick="hthCag()">Health</a>
+                <a class="dropdown-item" onclick="sciCag()">Science</a>
+                <a class="dropdown-item" onclick="spoCag()">Sports</a>
+                <a class="dropdown-item" onclick="techCag()">Technology</a>
             </div>
-          </div>
+        </div>
+        <div class="header"><span id="bold">Number of Articles :</span> <span id="newsNum"></span></div>
+        <div>
+            <input type="text" id="keywordArea">
+            <button onclick="searchByKeyword()" class="btn btn-warning">Search</button>
+        </div>
     </div>
-    <div id="newsArea">
+    <div class="main-features">
+        <div class="sources">
+            <h2>News Sources</h2>
+            <div id="sourceArea"></div>
+        </div>
+        <div id="newsArea"></div>
     </div>
     <div class="center">
-        <button onclick="showMore()" class="btn btn-light btn-lg btnLoad">Load More News Stories</button>
+        <button onclick="showMore()" class="btn btn-warning btn-lg btnLoad">Load More News Stories</button>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
