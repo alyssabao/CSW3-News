@@ -4,7 +4,7 @@ let topics = "general";
 let keyword = "";
 
 const loadNews = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?category=${topics}&pagesize=${numNewsStories}${keyword}&apiKey=3e55faed737443bf89827a73de9aa361`
+    let url = `https://cors.damanhkhoa.com/https://newsapi.org/v2/top-headlines?category=${topics}&pagesize=${numNewsStories}${keyword}&apiKey=3e55faed737443bf89827a73de9aa361`
     let data = await fetch(url)
     let result = await data.json()
     newsList = result.articles
